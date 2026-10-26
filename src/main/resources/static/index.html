@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePlus | Hospital Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2 class="logo">✚ CarePlus</h2>
+        <p class="menu-label">MAIN MENU</p>
+        <button class="nav-btn active" data-section="dashboard">▦ Dashboard</button>
+        <button class="nav-btn" data-section="patients">♙ Patients</button>
+        <button class="nav-btn" data-section="doctors">⚕ Doctors</button>
+        <button class="nav-btn" data-section="departments">▤ Departments</button>
+        <div class="sidebar-footer">Hospital Management System</div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1 id="page-title">Dashboard</h1>
+                <p>Welcome to CarePlus Hospital Management System</p>
+            </div>
+            <div class="admin-badge">● Administrator</div>
+        </header>
+
+        <section id="dashboard" class="section">
+            <div class="welcome-card">
+                <div>
+                    <h2>Good healthcare starts here.</h2>
+                    <p>Manage your patients, doctors and departments in one place.</p>
+                </div>
+                <span class="welcome-icon">✚</span>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <span class="stat-icon blue">♙</span>
+                    <p>Total Patients</p>
+                    <h2 id="patient-count">0</h2>
+                    <small>Registered patients</small>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon green">⚕</span>
+                    <p>Total Doctors</p>
+                    <h2 id="doctor-count">0</h2>
+                    <small>Registered doctors</small>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon purple">▤</span>
+                    <p>Departments</p>
+                    <h2 id="department-count">0</h2>
+                    <small>Hospital departments</small>
+                </article>
+            </div>
+
+            <div class="panel">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <button class="primary-btn" onclick="openSection('patients')">+ Manage Patients</button>
+                    <button class="secondary-btn" onclick="openSection('doctors')">View Doctors</button>
+                    <button class="secondary-btn" onclick="openSection('departments')">View Departments</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Recent Patients</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Email</th></tr></thead>
+                        <tbody id="recent-patients">
+                            <tr><td colspan="5">Loading patients...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="patients" class="section hidden">
+            <div class="section-heading">
+                <div><h2>Patient Management</h2><p>Add, update, view and delete patient records.</p></div>
+                <button class="primary-btn" onclick="showForm('patient')">+ Add Patient</button>
+            </div>
+            <div id="patient-form" class="panel hidden">
+                <h3 id="patient-form-title">Add Patient</h3>
+                <form id="patient-data-form">
+                    <input type="hidden" id="patient-id">
+                    <div class="form-grid">
+                        <label>Full Name<input id="patient-name" required placeholder="Enter full name"></label>
+                        <label>Age<input id="patient-age" type="number" min="0" required placeholder="Age"></label>
+                        <label>Gender
+                            <select id="patient-gender" required>
+                                <option value="">Select gender</option>
+                                <option>Female</option><option>Male</option><option>Other</option>
+                            </select>
+                        </label>
+                        <label>Email<input id="patient-email" type="email" required placeholder="Email address"></label>
+                        <label>Phone<input id="patient-phone" required placeholder="Phone number"></label>
+                        <label>Address<input id="patient-address" required placeholder="Address"></label>
+                    </div>
+                    <div class="form-actions">
+                        <button class="primary-btn" type="submit">Save Patient</button>
+                        <button class="secondary-btn" type="button" onclick="hideForm('patient')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Email</th><th>Phone</th><th>Address</th><th>Actions</th></tr></thead>
+                        <tbody id="patients-table"><tr><td colspan="8">Loading...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors" class="section hidden">
+            <div class="section-heading">
+                <div><h2>Doctor Management</h2><p>View and manage registered doctors.</p></div>
+                <button class="primary-btn" onclick="showForm('doctor')">+ Add Doctor</button>
+            </div>
+            <div id="doctor-form" class="panel hidden">
+                <h3 id="doctor-form-title">Add Doctor</h3>
+                <form id="doctor-data-form">
+                    <input type="hidden" id="doctor-id">
+                    <div class="form-grid">
+                        <label>Full Name<input id="doctor-name" required placeholder="Doctor name"></label>
+                        <label>Specialization<input id="doctor-specialization" required placeholder="Specialization"></label>
+                        <label>Email<input id="doctor-email" type="email" required placeholder="Email address"></label>
+                        <label>Phone<input id="doctor-phone" required placeholder="Phone number"></label>
+                    </div>
+                    <div class="form-actions">
+                        <button class="primary-btn" type="submit">Save Doctor</button>
+                        <button class="secondary-btn" type="button" onclick="hideForm('doctor')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="panel table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Name</th><th>Specialization</th><th>Email</th><th>Phone</th><th>Actions</th></tr></thead>
+                    <tbody id="doctors-table"><tr><td colspan="6">Loading...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="departments" class="section hidden">
+            <div class="section-heading">
+                <div><h2>Department Management</h2><p>Manage hospital departments.</p></div>
+                <button class="primary-btn" onclick="showForm('department')">+ Add Department</button>
+            </div>
+            <div id="department-form" class="panel hidden">
+                <h3 id="department-form-title">Add Department</h3>
+                <form id="department-data-form">
+                    <input type="hidden" id="department-id">
+                    <div class="form-grid">
+                        <label>Department Name<input id="department-name" required placeholder="Department name"></label>
+                        <label>Description<input id="department-description" required placeholder="Description"></label>
+                    </div>
+                    <div class="form-actions">
+                        <button class="primary-btn" type="submit">Save Department</button>
+                        <button class="secondary-btn" type="button" onclick="hideForm('department')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="panel table-wrap">
+                <table>
+                    <thead><tr><th>ID</th><th>Name</th><th>Description</th><th>Actions</th></tr></thead>
+                    <tbody id="departments-table"><tr><td colspan="4">Loading...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="footer">© 2026 CarePlus Hospital Management System</footer>
+    </main>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+# Help and generated Maven files
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Maven build output
+**/src/main/**/target/
+**/src/test/**/target/
+build/
+
+# Spring Tools for Eclipse (STS) and Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Visual Studio Code
+.vscode/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local application configuration
+application-local.properties
+application-secret.properties
+**/application-local.properties
+**/application-secret.properties
+
+# Logs
+*.log
+logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+src/main/resources/application.properties
