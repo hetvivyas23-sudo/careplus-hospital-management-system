@@ -1,3 +1,4 @@
+![CarePlus Dashboard](careplus-dashboard.png.png)
 # CarePlus – Hospital Management System
 
 CarePlus is a web-based Hospital Management System developed using Spring Boot, Java, MySQL, REST APIs, and SOAP Web Services. It provides a dashboard for managing hospital information through a simple user interface.
